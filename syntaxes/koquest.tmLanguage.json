@@ -1,0 +1,251 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "LibreKO Quest Script",
+  "scopeName": "source.koquest",
+  "patterns": [
+    {
+      "include": "#comment"
+    },
+    {
+      "include": "#include"
+    },
+    {
+      "include": "#binding"
+    },
+    {
+      "include": "#directive"
+    },
+    {
+      "include": "#declaration"
+    },
+    {
+      "include": "#handler"
+    },
+    {
+      "include": "#eventref"
+    },
+    {
+      "include": "#block"
+    },
+    {
+      "include": "#control"
+    },
+    {
+      "include": "#case"
+    },
+    {
+      "include": "#presentation"
+    },
+    {
+      "include": "#effect"
+    },
+    {
+      "include": "#locationfield"
+    },
+    {
+      "include": "#string"
+    },
+    {
+      "include": "#operator"
+    },
+    {
+      "include": "#domain"
+    },
+    {
+      "include": "#status"
+    },
+    {
+      "include": "#number"
+    },
+    {
+      "include": "#keyword"
+    },
+    {
+      "include": "#name"
+    },
+    {
+      "include": "#punctuation"
+    }
+  ],
+  "repository": {
+    "comment": {
+      "patterns": [
+        {
+          "name": "comment.line.number-sign.koquest",
+          "match": "(?:#|--|//).*$"
+        },
+        {
+          "name": "comment.block.koquest",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "declaration": {
+      "match": "^\\s*([A-Za-z_][A-Za-z0-9_]*)\\s*(=)\\s*(event|quest|item|npc|location|text)\\b",
+      "captures": {
+        "1": {
+          "name": "storage.type.koquest"
+        },
+        "2": {
+          "name": "keyword.operator.assignment.koquest"
+        },
+        "3": {
+          "name": "storage.type.koquest"
+        }
+      }
+    },
+    "handler": {
+      "begin": "^\\s*(On)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.koquest"
+        },
+        "2": {
+          "name": "storage.type.koquest"
+        }
+      },
+      "end": "$",
+      "patterns": [
+        {
+          "include": "#comment"
+        },
+        {
+          "match": "\\b(for|quest)\\b",
+          "name": "variable.other.koquest"
+        },
+        {
+          "match": "\\b\\d+\\b",
+          "name": "constant.numeric.koquest"
+        },
+        {
+          "include": "#punctuation"
+        }
+      ]
+    },
+    "block": {
+      "match": "^\\s*(If|Else\\s+if|Else|By|Transaction|Trade|RewardPool|RewardTable|Row|Weights|For)\\b",
+      "captures": {
+        "1": {
+          "name": "keyword.control.koquest"
+        }
+      }
+    },
+    "case": {
+      "match": "^\\s*(Warrior|Rogue|Mage|Priest|Kurian|Karus|ElMorad|None|Training|Promoted|Accredited5|Accredited4|Accredited3|Accredited2|Accredited1|Royal5|Royal4|Royal3|Royal2|Royal1)\\b(?=[\\s,:])",
+      "captures": {
+        "1": {
+          "name": "support.constant.koquest"
+        }
+      }
+    },
+    "string": {
+      "begin": "\"",
+      "end": "\"",
+      "name": "string.quoted.double.koquest"
+    },
+    "operator": {
+      "match": "(<=|>=|==|!=|<>|<|>|=)|\\b(and|or)\\b",
+      "name": "keyword.operator.koquest"
+    },
+    "domain": {
+      "match": "\\b(Warrior|Rogue|Mage|Priest|Kurian|Karus|ElMorad|None|Training|Promoted|Accredited5|Accredited4|Accredited3|Accredited2|Accredited1|Royal5|Royal4|Royal3|Royal2|Royal1)\\b",
+      "name": "support.constant.koquest"
+    },
+    "status": {
+      "match": "\\b(completed|started|unstarted)\\b",
+      "name": "support.constant.koquest"
+    },
+    "number": {
+      "match": "\\b\\d+\\b",
+      "name": "constant.numeric.koquest"
+    },
+    "keyword": {
+      "match": "\\b(do|player|quest|event|goto|close|notice|menu|offer|flag|is|not|at|has|lacks|room|space|can|receive|stacks|weight|experience|nothing|for|of|level|gold|exp|np|kills|group|in|leads|king|daily|available|active|chance|premium|map|stats|skills|panel|npc|zone|on|to|random|reward|selection|from|weight|days|hours|mining|achievement|temple|percent|reached|with|else|kill|a|class|subtype|nation|text|location|item|found|unstarted|started|completed|fulfilled|abandoned|roll|monument|cash|job|unmastered|x|needs|any|all|the|last|step|worked|failed|busy|clan|party|no|topic|fits|rank|grade|points|rename|coins)\\b",
+      "name": "variable.other.koquest"
+    },
+    "punctuation": {
+      "match": "[:,]",
+      "name": "punctuation.separator.koquest"
+    },
+    "directive": {
+      "match": "^\\s*(Bind|Npc|Zone|Quest)\\b",
+      "captures": {
+        "1": {
+          "name": "storage.type.koquest"
+        }
+      }
+    },
+    "effect": {
+      "match": "(?:^\\s*|(?<=:\\s))(Complete|Start|Set|Give|Take|Exchange|Warp|Teleport|Refuse|Cast|Effect|Promote|Reset|Fulfil|Abandon|Clear|Change|Todo|Kill|Journal|Despawn)\\b",
+      "captures": {
+        "1": {
+          "name": "support.function.koquest"
+        }
+      }
+    },
+    "presentation": {
+      "match": "(?:^\\s*|(?<=:\\s))(Say|Topic|Button|Announce|Open|Map)\\b",
+      "captures": {
+        "1": {
+          "name": "entity.name.function.koquest"
+        }
+      }
+    },
+    "control": {
+      "match": "\\b(Goto|goto|Do|do|close)\\b",
+      "name": "keyword.control.koquest"
+    },
+    "eventref": {
+      "match": "\\b([Gg]oto)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+      "captures": {
+        "1": {
+          "name": "keyword.control.koquest"
+        },
+        "2": {
+          "name": "storage.type.koquest"
+        }
+      }
+    },
+    "include": {
+      "match": "^\\s*(include)\\s+(\\S+)",
+      "captures": {
+        "1": {
+          "name": "keyword.control.import.koquest"
+        },
+        "2": {
+          "name": "string.unquoted.include.koquest"
+        }
+      }
+    },
+    "locationfield": {
+      "match": "\\b(found|at)\\b(?=\\s)",
+      "name": "variable.other.koquest"
+    },
+    "name": {
+      "match": "\\b[a-z_][a-z0-9_]*\\b",
+      "name": "storage.type.koquest"
+    },
+    "binding": {
+      "begin": "^\\s*(Bind)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "storage.type.koquest"
+        }
+      },
+      "end": "$",
+      "patterns": [
+        {
+          "include": "#comment"
+        },
+        {
+          "match": "\\b(?:Npc|Zone)\\b",
+          "name": "variable.other.koquest"
+        },
+        {
+          "include": "#number"
+        }
+      ]
+    }
+  }
+}

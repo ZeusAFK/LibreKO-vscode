@@ -1,0 +1,131 @@
+{
+  "name": "vscode-libreko",
+  "displayName": "LibreKO",
+  "description": "Editor support for LibreKO's own file formats, starting with quest scripts.",
+  "version": "0.1.0",
+  "publisher": "libreko",
+  "license": "AGPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZeusAFK/LibreKO-vscode.git"
+  },
+  "private": true,
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:koquest"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "koquest",
+        "aliases": [
+          "LibreKO Quest Script"
+        ],
+        "extensions": [
+          ".quest"
+        ],
+        "configuration": "./languages/koquest.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "koquest",
+        "scopeName": "source.koquest",
+        "path": "./syntaxes/koquest.tmLanguage.json"
+      }
+    ],
+    "semanticTokenScopes": [
+      {
+        "language": "koquest",
+        "scopes": {
+          "keyword": [
+            "keyword.control"
+          ],
+          "macro": [
+            "support.function"
+          ],
+          "function": [
+            "entity.name.function"
+          ],
+          "type": [
+            "storage.type"
+          ],
+          "event": [
+            "storage.type"
+          ],
+          "number": [
+            "constant.numeric"
+          ],
+          "string": [
+            "string.quoted.double"
+          ],
+          "enumMember": [
+            "support.constant"
+          ],
+          "property": [
+            "variable.other.property"
+          ],
+          "comment": [
+            "comment.line"
+          ],
+          "operator": [
+            "keyword.operator"
+          ]
+        }
+      }
+    ],
+    "configuration": {
+      "title": "LibreKO",
+      "properties": {
+        "libreko.quest.serverPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to the questlsp binary. Empty runs it from the LibreKO checkout with dotnet run."
+        },
+        "libreko.quest.seedDirectory": {
+          "type": "string",
+          "default": "",
+          "description": "LibreKO.Game/Seed/Data. Without it, ids cannot be resolved to names."
+        },
+        "libreko.quest.questTextPath": {
+          "type": "string",
+          "default": "",
+          "description": "client/assets/quests/quest_text.json, so legacy text ids resolve to their words."
+        },
+        "libreko.quest.showNamesInsteadOfIds": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show an id as the name it means, revealing the id when the cursor is on it."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "libreko.quest.toggleNames",
+        "title": "LibreKO: Toggle quest names / ids"
+      },
+      {
+        "command": "libreko.quest.restartServer",
+        "title": "LibreKO: Restart the quest language server"
+      }
+    ]
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "vscode-oniguruma": "^2.0.1",
+    "vscode-textmate": "^9.0.0"
+  },
+  "scripts": {
+    "test:grammar": "node test/grammar.test.js",
+    "test:scopes": "node test/scopeparity.test.js",
+    "test": "node test/grammar.test.js && node test/scopeparity.test.js"
+  }
+}
