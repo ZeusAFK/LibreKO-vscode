@@ -177,7 +177,7 @@
       }
     },
     "effect": {
-      "match": "(?:^\\s*|(?<=:\\s))(Complete|Start|Set|Give|Take|Exchange|Warp|Teleport|Refuse|Cast|Effect|Promote|Reset|Fulfil|Abandon|Clear|Change|Todo|Kill|Journal|Despawn)\\b",
+      "match": "(?:^\\s*|(?<=:\\s))(Complete|Start|Set|Give|Take|Exchange|Warp|Teleport|Refuse|Cast|Effect|Promote|Reset|Fulfil|Abandon|Clear|Change|Todo|Kill|Title|Journal|Despawn)\\b",
       "captures": {
         "1": {
           "name": "support.function.koquest"

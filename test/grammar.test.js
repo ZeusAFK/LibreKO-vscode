@@ -163,6 +163,7 @@ for (const [line, needle, scope] of [
   ['        For 0 to 999', 'For', 'keyword.control.koquest'],
   ['    Refuse reward', 'Refuse', 'support.function.koquest'],
   ['    Teleport 21 at 10 20', 'Teleport', 'support.function.koquest'],
+  ['    Title for karus "Marauders of Darkland I"', 'Title', 'support.function.koquest'],
   ['// Comment', '// Comment', 'comment.line.number-sign.koquest'],
   ['/* Begin', '/* Begin', 'comment.block.koquest'],
   ['End */', 'End */', 'comment.block.koquest'],
