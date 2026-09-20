@@ -161,7 +161,7 @@
       "name": "constant.numeric.koquest"
     },
     "keyword": {
-      "match": "\\b(do|player|quest|event|goto|close|notice|menu|offer|flag|is|not|at|has|lacks|room|space|can|receive|stacks|weight|experience|nothing|for|of|level|gold|exp|np|kills|group|in|leads|king|daily|available|active|chance|premium|map|stats|skills|panel|npc|zone|on|to|random|reward|selection|from|weight|days|hours|mining|achievement|temple|percent|reached|with|else|kill|a|class|subtype|nation|text|location|item|found|unstarted|started|completed|fulfilled|abandoned|roll|monument|cash|job|unmastered|x|needs|any|all|the|last|step|worked|failed|busy|clan|party|no|topic|fits|rank|grade|points|rename|coins)\\b",
+      "match": "\\b(do|player|quest|event|goto|close|notice|menu|offer|flag|is|not|at|has|lacks|room|space|can|receive|stacks|weight|experience|nothing|for|of|level|gold|exp|np|kills|group|in|leads|king|daily|elsewhere|available|active|chance|premium|map|stats|skills|panel|npc|zone|on|to|random|reward|selection|from|weight|days|hours|mining|achievement|temple|percent|reached|with|else|kill|a|class|subtype|nation|text|location|item|found|unstarted|started|completed|fulfilled|abandoned|roll|monument|cash|job|unmastered|x|needs|any|all|the|last|step|worked|failed|busy|clan|party|no|topic|fits|rank|grade|points|rename|coins)\\b",
       "name": "variable.other.koquest"
     },
     "punctuation": {
