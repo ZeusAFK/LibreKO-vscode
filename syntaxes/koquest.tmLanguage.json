@@ -161,7 +161,7 @@
       "name": "constant.numeric.koquest"
     },
     "keyword": {
-      "match": "\\b(do|player|quest|event|goto|close|notice|menu|offer|flag|is|not|at|has|lacks|room|space|can|receive|stacks|weight|experience|nothing|for|of|level|gold|exp|np|kills|group|in|leads|king|daily|effect|today|monday|tuesday|wednesday|thursday|friday|saturday|sunday|elsewhere|available|active|chance|premium|map|stats|skills|panel|npc|zone|on|to|random|reward|selection|from|weight|days|hours|mining|achievement|temple|percent|reached|rebirth|familiar|gender|transfer|fortune|special|auction|combine|recipe|book|shop|with|else|kill|a|class|subtype|nation|text|location|item|found|unstarted|started|completed|fulfilled|abandoned|roll|monument|cash|job|unmastered|x|needs|any|all|the|last|step|worked|failed|busy|clan|party|no|topic|fits|rank|grade|points|rename|coins)\\b",
+      "match": "\\b(do|player|quest|event|goto|close|notice|menu|offer|flag|is|not|at|has|lacks|room|space|can|receive|stacks|weight|experience|nothing|for|of|level|gold|exp|np|kills|group|in|leads|king|daily|effect|today|monday|tuesday|wednesday|thursday|friday|saturday|sunday|elsewhere|available|active|chance|premium|map|stats|skills|panel|npc|zone|on|to|random|reward|selection|from|weight|days|hours|mining|achievement|temple|percent|reached|rebirth|familiar|gender|transfer|fortune|special|auction|combine|recipe|book|shop|with|else|kill|a|class|subtype|nation|text|location|item|found|unstarted|started|completed|fulfilled|abandoned|roll|monument|cash|job|unmastered|x|needs|any|all|the|last|step|worked|failed|busy|clan|party|no|topic|fits|rank|grade|points|rename|coins|reset|disassemble|window|blue|red|soccer|team|game|board|krowaz|open|closed)\\b",
       "name": "variable.other.koquest"
     },
     "punctuation": {
@@ -177,7 +177,7 @@
       }
     },
     "effect": {
-      "match": "(?:^\\s*|(?<=:\\s))(Complete|Start|Set|Give|Take|Exchange|Warp|Teleport|Refuse|Cast|Effect|Promote|Reset|Fulfil|Abandon|Clear|Change|Todo|Kill|Title|Journal|Despawn|Summon|Enter)\\b",
+      "match": "(?:^\\s*|(?<=:\\s))(Complete|Start|Set|Give|Take|Exchange|Warp|Teleport|Refuse|Cast|Effect|Promote|Reset|Fulfil|Abandon|Clear|Change|Todo|Kill|Title|Journal|Despawn|Summon|Enter|Join|Show)\\b",
       "captures": {
         "1": {
           "name": "support.function.koquest"
